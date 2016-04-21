@@ -1,0 +1,15 @@
+{
+    "name"        : "Grammar::MIME",
+    "version"     : "*",
+    "description" : "Grammars for parsing MIME entities",
+    "depends"     : [ ],
+    "auth"       : "github:ugexe",
+    "provides"   : {
+        "Grammar::MIME" : "lib/Grammar/MIME.pm6",
+        "Grammar::Rules::RFC5322" : "lib/Grammar/Rules/RFC5322.pm6",
+        "Grammar::Rules::RFC2045" : "lib/Grammar/Rules/RFC2045.pm6",
+        "Grammar::Rules::RFC2046" : "lib/Grammar/Rules/RFC2046.pm6",
+        "Grammar::Rules::RFC4234" : "lib/Grammar/Rules/RFC4234.pm6"
+    },
+    "source-url" : "git://github.com/ugexe/Perl6-Grammar--MIME.git"
+}

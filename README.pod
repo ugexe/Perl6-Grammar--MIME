@@ -1,0 +1,98 @@
+=pod
+
+=encoding utf8
+
+=head2 Grammar::MIME
+
+MIME entity parsing grammars
+
+=head3 Synopsis
+
+    use Grammar::MIME;
+    my $email       = 't/test-mails/with-attachment.txt'.IO.slurp;
+    my $mime-parser = Grammar::MIME.new;
+    my $parsed      = $mime-parser.parse($email);
+    say $parsed<fields>;
+
+
+    ｢Return-Path: <nlogan@gmail.com>
+    To: Nick Logan <ugexe@cpan.org>
+    Subject: Test email
+    From: Nick Logan <nlogan@gmail.com>
+    Reply-To: Nick Logan <nlogan@gmail.com>
+    Sender: nlogan@gmail.com
+    MIME-Version: 1.0
+    Content-Type: multipart/mixed; boundary="652b8c4dcb00cdcdda1e16af36781caf"
+    Message-ID: <20050430192829.0489.nlogan@gmail.com>
+    Date: Sat, 30 Apr 2005 19:28:29 -0300
+    ｣
+     optional-field => ｢Return-Path: <nlogan@gmail.com>
+    ｣
+      field => ｢Return-Path｣
+      value => ｢ <nlogan@gmail.com>｣
+     to => ｢To: Nick Logan <ugexe@cpan.org>
+    ｣
+      address-list => ｢ Nick Logan <ugexe@cpan.org>｣
+       address => ｢ Nick Logan <ugexe@cpan.org>｣
+        mailbox => ｢ Nick Logan <ugexe@cpan.org>｣
+         name-addr => ｢ Nick Logan <ugexe@cpan.org>｣
+          display-name => ｢ Nick Logan ｣
+          angle-addr => ｢<ugexe@cpan.org>｣
+           addr-spec => ｢ugexe@cpan.org｣
+     subject => ｢Subject: Test email
+    ｣
+      value => ｢ Test email｣
+     from => ｢From: Nick Logan <nlogan@gmail.com>
+    ｣
+      mailbox-list => ｢ Nick Logan <nlogan@gmail.com>｣
+       mailbox => ｢ Nick Logan <nlogan@gmail.com>｣
+        name-addr => ｢ Nick Logan <nlogan@gmail.com>｣
+         display-name => ｢ Nick Logan ｣
+         angle-addr => ｢<nlogan@gmail.com>｣
+          addr-spec => ｢nlogan@gmail.com｣
+     reply-to => ｢Reply-To: Nick Logan <nlogan@gmail.com>
+    ｣
+      address-list => ｢ Nick Logan <nlogan@gmail.com>｣
+       address => ｢ Nick Logan <nlogan@gmail.com>｣
+        mailbox => ｢ Nick Logan <nlogan@gmail.com>｣
+         name-addr => ｢ Nick Logan <nlogan@gmail.com>｣
+          display-name => ｢ Nick Logan ｣
+          angle-addr => ｢<nlogan@gmail.com>｣
+           addr-spec => ｢nlogan@gmail.com｣
+     sender => ｢Sender: nlogan@gmail.com
+    ｣
+      mailbox => ｢ nlogan@gmail.com｣
+       addr-spec => ｢ nlogan@gmail.com｣
+     optional-field => ｢MIME-Version: 1.0
+    ｣
+      field => ｢MIME-Version｣
+      value => ｢ 1.0｣
+     optional-field => ｢Content-Type: multipart/mixed; boundary="652b8c4dcb00cdcdda1e16af36781caf"
+    ｣
+      field => ｢Content-Type｣
+      value => ｢ multipart/mixed; boundary="652b8c4dcb00cdcdda1e16af36781caf"｣
+     message-id => ｢Message-ID: <20050430192829.0489.nlogan@gmail.com>
+    ｣
+      msg-id => ｢ <20050430192829.0489.nlogan@gmail.com>｣
+     orig-date => ｢Date: Sat, 30 Apr 2005 19:28:29 -0300
+    ｣
+      date-time => ｢ Sat, 30 Apr 2005 19:28:29 -0300｣
+
+=head3 Description
+
+B<Do not use yet>
+
+Currently parses the header fields and the body. Need to integrate action classes
+and the other grammars for message recursive matching and handling boundaries
+
+=head3 RFCs
+
+L<RFC5322|http://tools.ietf.org/html/rfc5322> Internet Message Format
+
+L<RFC2045|http://tools.ietf.org/html/rfc2045> MIME Part One: Format of Internet Message Bodies
+
+L<RFC2046|http://tools.ietf.org/html/rfc2046> MIME Part Two: Media Types
+
+L<RFC4234|http://tools.ietf.org/html/rfc4234> Augmented BNF for Syntax Specifications: ABNF
+
+=cut
