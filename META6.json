@@ -1,6 +1,6 @@
 {
     "name"        : "Grammar::MIME",
-    "version"     : "*",
+    "version"     : "6",
     "description" : "Grammars for parsing MIME entities",
     "depends"     : [ ],
     "auth"       : "github:ugexe",
